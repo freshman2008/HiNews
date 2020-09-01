@@ -34,9 +34,9 @@ dependencies {
     if (!HOME_MODULE_IS_APP.toBoolean()) {
         implementation project(path: ':home')
     }
-//    if (!VIDEO_MODULE_IS_APP.toBoolean()) {
-//        implementation project(path: ':video')
-//    }
+    if (!VIDEO_MODULE_IS_APP.toBoolean()) {
+        implementation project(path: ':video')
+    }
 //    if (!MINIVIDEO_MODULE_IS_APP.toBoolean()) {
 //        implementation project(path: ':minivideo')
 //    }
