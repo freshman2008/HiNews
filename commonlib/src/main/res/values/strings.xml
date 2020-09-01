@@ -1,0 +1,8 @@
+<resources>
+    <string name="loading_tv">正在加载 ...</string>
+    <string name="mainpage_navi_item_homepage">首页</string>
+    <string name="mainpage_navi_item_video">视频</string>
+    <string name="mainpage_navi_item_minivideo">短视频</string>
+    <string name="mainpage_navi_item_myinfo">我的</string>
+    <string name="press_again_to_exit">再按一次退出程序</string>
+</resources>
