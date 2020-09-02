@@ -3,6 +3,7 @@ package com.example.video.ui.main;
 import android.util.Log;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.commonlib.mvp.BaseFragment;
 import com.example.video.R;
 import com.example.video.adapter.VideoListRvAdapter;
@@ -19,6 +20,7 @@ import cn.jzvd.JzvdMgr;
 
 import static com.example.commonlib.utils.Consts.TAG;
 
+@Route(path = "/video/videofragment")
 public class VideoFragment extends BaseFragment<VideoPresenter> implements VideoContract.View {
     private RecyclerView mVideoListRV;
     private VideoListRvAdapter mVideoListAdapter;
@@ -26,7 +28,7 @@ public class VideoFragment extends BaseFragment<VideoPresenter> implements Video
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.fragment_video;
+        return R.layout.video_fragment_video;
     }
 
     @Override

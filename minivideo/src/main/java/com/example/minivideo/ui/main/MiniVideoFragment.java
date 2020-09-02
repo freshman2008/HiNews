@@ -4,15 +4,17 @@ import android.net.Uri;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.commonlib.mvp.BaseFragment;
 import com.example.minivideo.R;
 
+@Route(path = "/minivideo/minivideofragment")
 public class MiniVideoFragment extends BaseFragment<MiniVideoPresenter> {
     private VideoView videoView;
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.fragment_minivideo;
+        return R.layout.minivideo_fragment_minivideo;
     }
 
     @Override

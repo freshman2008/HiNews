@@ -43,7 +43,7 @@ public class VideoListRvAdapter extends RecyclerView.Adapter<VideoListRvAdapter.
     @NonNull
     @Override
     public VideoListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.videos_item, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.video_videos_item, viewGroup, false);
         return new VideoListViewHolder(view);
     }
 

@@ -3,6 +3,8 @@ package com.example.home.ui.main;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.commonlib.adapter.OnItemClickListener;
 import com.example.commonlib.mvp.BaseFragment;
 import com.example.home.adapter.NewsListRvAdapter;
@@ -14,6 +16,7 @@ import java.util.List;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+@Route(path = "/home/newsfragment")
 public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsContract.View {
     private RecyclerView mNewsListRV;
     private NewsListRvAdapter mNewsListAdapter;
@@ -21,7 +24,7 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.fragment_news;
+        return R.layout.home_fragment_news;
     }
 
     @Override
@@ -36,12 +39,13 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
         mNewsListAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
-                Toast.makeText(getContext(), "Item " + position + "is clicked.", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "Item " + position + " is clicked.", Toast.LENGTH_SHORT).show();
+                ARouter.getInstance().build("/mine/login").navigation();
             }
 
             @Override
             public void onItemLongClick(View v, int position) {
-                Toast.makeText(getContext(), "Item " + position + "is long clicked.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Item " + position + " is long clicked.", Toast.LENGTH_SHORT).show();
             }
         });
     }

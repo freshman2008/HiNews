@@ -3,6 +3,8 @@ package com.example.commonlib;
 import android.app.Application;
 import android.content.Context;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+
 /**
  * @Description: BaseApplication
  * @Author: Li Xiuliang
@@ -16,6 +18,16 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
+
+        initARouter(this);
+    }
+
+    private void initARouter(Application application) {
+        if (BuildConfig.DEBUG) {
+            ARouter.openDebug();
+            ARouter.openLog();
+        }
+        ARouter.init(application);
     }
 
     public static Context getContext() {

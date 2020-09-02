@@ -48,6 +48,7 @@ public class MainActivity extends BaseActivity<MainPresenter> {
         mViewPager = findViewById(R.id.main_vp);
         List<Fragment> fragmentList = new ArrayList<>();
         NewsFragment fragment1 = new NewsFragment();
+
         VideoFragment fragment2 = new VideoFragment();
         MiniVideoFragment fragment3 = new MiniVideoFragment();
         MineFragment fragment4 = new MineFragment();

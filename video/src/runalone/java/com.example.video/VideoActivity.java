@@ -1,14 +1,16 @@
-package com.example.minivideo;
+package com.example.video;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MiniVideoActivity extends AppCompatActivity {
+import com.example.video.R;
+
+public class VideoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_minivideo);
+        setContentView(R.layout.activity_video);
     }
 }
