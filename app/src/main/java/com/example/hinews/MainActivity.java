@@ -8,6 +8,8 @@ import com.example.commonlib.view.BottomNaviBar;
 import com.example.commonlib.view.NoScrollViewPager;
 import com.example.hinews.adapter.MainPagerAdapter;
 import com.example.home.ui.main.NewsFragment;
+import com.example.mine.ui.main.MineFragment;
+import com.example.minivideo.ui.main.MiniVideoFragment;
 import com.example.video.ui.main.VideoFragment;
 
 import java.util.ArrayList;
@@ -47,12 +49,12 @@ public class MainActivity extends BaseActivity<MainPresenter> {
         List<Fragment> fragmentList = new ArrayList<>();
         NewsFragment fragment1 = new NewsFragment();
         VideoFragment fragment2 = new VideoFragment();
-//        MiniVideoFragment fragment3 = new MiniVideoFragment();
-//        MyInfoFragment fragment4 = new MyInfoFragment();
+        MiniVideoFragment fragment3 = new MiniVideoFragment();
+        MineFragment fragment4 = new MineFragment();
         fragmentList.add(fragment1);
         fragmentList.add(fragment2);
-//        fragmentList.add(fragment3);
-//        fragmentList.add(fragment4);
+        fragmentList.add(fragment3);
+        fragmentList.add(fragment4);
         MainPagerAdapter mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
         mainPagerAdapter.setList(fragmentList);
         mViewPager.setAdapter(mainPagerAdapter);

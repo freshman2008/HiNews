@@ -42,18 +42,6 @@ public class NewsListRvAdapter extends BaseRecyclerViewAdapter<NewsItem, NewsLis
         viewHolder.tvTitle.setText(mData.get(i).getTitle());
         viewHolder.tvFrom.setText(mData.get(i).getAuthor_name());
         viewHolder.tvTime.setText(mData.get(i).getDate());
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                return false;
-            }
-        });
     }
 
     static class NewsListViewHolder extends RecyclerView.ViewHolder {

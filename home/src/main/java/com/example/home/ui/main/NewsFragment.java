@@ -1,5 +1,9 @@
 package com.example.home.ui.main;
 
+import android.view.View;
+import android.widget.Toast;
+
+import com.example.commonlib.adapter.OnItemClickListener;
 import com.example.commonlib.mvp.BaseFragment;
 import com.example.home.adapter.NewsListRvAdapter;
 import com.example.home.bean.response.NewsItem;
@@ -29,6 +33,17 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
         mNewsListRV.setLayoutManager(mLayoutManager);
         mNewsListAdapter = new NewsListRvAdapter(getContext(), null);
         mNewsListRV.setAdapter(mNewsListAdapter);
+        mNewsListAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                Toast.makeText(getContext(), "Item " + position + "is clicked.", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemLongClick(View v, int position) {
+                Toast.makeText(getContext(), "Item " + position + "is long clicked.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

@@ -25,7 +25,7 @@ public class BaseRecyclerViewAdapter<T, VH extends RecyclerView.ViewHolder> exte
         notifyDataSetChanged();
     }
 
-    public void setmOnItemClickListener(OnItemClickListener listener) {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         mOnItemClickListener = listener;
     }
 

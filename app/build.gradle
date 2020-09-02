@@ -37,11 +37,11 @@ dependencies {
     if (!VIDEO_MODULE_IS_APP.toBoolean()) {
         implementation project(path: ':video')
     }
-//    if (!MINIVIDEO_MODULE_IS_APP.toBoolean()) {
-//        implementation project(path: ':minivideo')
-//    }
-//    if (!MINE_MODULE_IS_APP.toBoolean()) {
-//        implementation project(path: ':mine')
-//    }
+    if (!MINIVIDEO_MODULE_IS_APP.toBoolean()) {
+        implementation project(path: ':minivideo')
+    }
+    if (!MINE_MODULE_IS_APP.toBoolean()) {
+        implementation project(path: ':mine')
+    }
     implementation project(path: ':commonlib')
 }
