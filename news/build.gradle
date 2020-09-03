@@ -1,11 +1,22 @@
-apply plugin: 'com.android.application'
+if (NEWS_MODULE_IS_APP.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
     buildToolsVersion BUILD_TOOLS_VERSION
 
+    if (!NEWS_MODULE_IS_APP.toBoolean()) {
+        resourcePrefix "${project.name}_" //给 Module 内的资源名增加前缀, 避免资源名冲突
+    }
+
     defaultConfig {
-        applicationId "com.example.hinews"
+        if (NEWS_MODULE_IS_APP.toBoolean()) {
+            applicationId "com.example.news"
+        }
+
         minSdkVersion MIN_SDK_VERSION.toInteger()
         targetSdkVersion TARGET_SDK_VERSION.toInteger()
         versionCode VERSION_CODE.toInteger()
@@ -25,8 +36,22 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            debuggable = true
+        }
     }
 
+    sourceSets {
+        main {
+            if (NEWS_MODULE_IS_APP.toBoolean()) {
+                manifest.srcFile 'src/runalone/AndroidManifest.xml'
+                java.srcDirs = ['src/main/java','src/runalone/java']
+                res.srcDirs = ['src/main/res','src/runalone/res']
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
 }
 
 dependencies {
@@ -37,19 +62,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    if (!NEWS_MODULE_IS_APP.toBoolean()) {
-        implementation project(path: ':news')
-    }
-    if (!VIDEO_MODULE_IS_APP.toBoolean()) {
-        implementation project(path: ':video')
-    }
-    if (!MINIVIDEO_MODULE_IS_APP.toBoolean()) {
-        implementation project(path: ':minivideo')
-    }
-    if (!MINE_MODULE_IS_APP.toBoolean()) {
-        implementation project(path: ':mine')
-    }
 
-    implementation project(path: ':commonlib')
     annotationProcessor "com.alibaba:arouter-compiler:$AROUTER_COMPILER"
+    implementation project(path: ':provider')
+
+    if (NEWS_MODULE_IS_APP.toBoolean()) {
+        if (!MINE_MODULE_IS_APP.toBoolean()) {
+            implementation project(path: ':mine')
+        }
+    }
 }

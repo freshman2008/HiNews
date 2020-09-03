@@ -9,10 +9,6 @@ import com.example.commonlib.utils.ARouterConstants;
 import com.example.commonlib.view.BottomNaviBar;
 import com.example.commonlib.view.NoScrollViewPager;
 import com.example.hinews.adapter.MainPagerAdapter;
-import com.example.home.ui.main.NewsFragment;
-import com.example.mine.ui.main.MineFragment;
-import com.example.minivideo.ui.main.MiniVideoFragment;
-import com.example.video.ui.main.VideoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
