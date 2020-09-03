@@ -3,24 +3,30 @@ package com.example.home.ui.main;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.commonlib.adapter.OnItemClickListener;
 import com.example.commonlib.mvp.BaseFragment;
+import com.example.commonlib.utils.ARouterConstants;
 import com.example.home.adapter.NewsListRvAdapter;
 import com.example.home.bean.response.NewsItem;
 import com.example.home.R;
+import com.example.provider.HelloService;
 
 import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-@Route(path = "/home/newsfragment")
+@Route(path = ARouterConstants.HOME.NEWS_FRAGMENT)
 public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsContract.View {
     private RecyclerView mNewsListRV;
     private NewsListRvAdapter mNewsListAdapter;
     private LinearLayoutManager mLayoutManager;
+
+    @Autowired
+    HelloService helloService;
 
     @Override
     protected int getLayoutResId() {
@@ -40,12 +46,14 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
             @Override
             public void onItemClick(View v, int position) {
 //                Toast.makeText(getContext(), "Item " + position + " is clicked.", Toast.LENGTH_SHORT).show();
-                ARouter.getInstance().build("/mine/login").navigation();
+                ARouter.getInstance().build(ARouterConstants.MINE.MINE_LONGIN_ACTIVITY).navigation();
             }
 
             @Override
             public void onItemLongClick(View v, int position) {
-                Toast.makeText(getContext(), "Item " + position + " is long clicked.", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "Item " + position + " is long clicked.", Toast.LENGTH_SHORT).show();
+//                HelloService helloService = (HelloService) ARouter.getInstance().build(ARouterConstants.HOME.SERVICE_HELLO).navigation();
+                String result = helloService.sayHello("Edward");
             }
         });
     }

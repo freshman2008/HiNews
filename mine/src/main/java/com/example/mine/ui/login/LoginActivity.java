@@ -3,6 +3,7 @@ package com.example.mine.ui.login;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.commonlib.mvp.BaseActivity;
 import com.example.commonlib.mvp.IBasePresenter;
+import com.example.commonlib.utils.ARouterConstants;
 import com.example.mine.R;
 import com.example.mine.bean.LoginResult;
 
@@ -11,7 +12,7 @@ import com.example.mine.bean.LoginResult;
  * @date: 2020/9/2 18:09
  */
 
-@Route(path = "/mine/login")
+@Route(path = ARouterConstants.MINE.MINE_LONGIN_ACTIVITY)
 public class LoginActivity extends BaseActivity implements LoginContract.View {
     @Override
     protected void initData() {

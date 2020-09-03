@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.commonlib.R;
 
 import androidx.annotation.NonNull;
@@ -35,11 +36,16 @@ abstract public class BaseFragment<P extends IBasePresenter> extends Fragment im
 
     protected abstract void initData();
 
+    protected void initLib() {
+        ARouter.getInstance().inject(this);
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mPresenter = createPresenter();
         mPresenter.attachView(this);
+        initLib();
         initView();
         initData();
     }

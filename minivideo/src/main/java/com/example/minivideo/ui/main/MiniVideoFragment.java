@@ -6,9 +6,10 @@ import android.widget.VideoView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.commonlib.mvp.BaseFragment;
+import com.example.commonlib.utils.ARouterConstants;
 import com.example.minivideo.R;
 
-@Route(path = "/minivideo/minivideofragment")
+@Route(path = ARouterConstants.MINIVIDEO.MINIVIDEO_FRAGMENT)
 public class MiniVideoFragment extends BaseFragment<MiniVideoPresenter> {
     private VideoView videoView;
 

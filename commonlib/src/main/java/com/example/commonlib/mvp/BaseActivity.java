@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.commonlib.R;
 
 import androidx.annotation.Nullable;
@@ -22,8 +23,13 @@ abstract public class BaseActivity<P extends IBasePresenter> extends AppCompatAc
             mPresenter.attachView(this);
         }
 
+        initLib();
         initView();
         initData();
+    }
+
+    protected void initLib() {
+        ARouter.getInstance().inject(this);
     }
 
     protected abstract void initData();

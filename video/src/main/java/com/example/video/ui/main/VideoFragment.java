@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.commonlib.mvp.BaseFragment;
+import com.example.commonlib.utils.ARouterConstants;
 import com.example.video.R;
 import com.example.video.adapter.VideoListRvAdapter;
 import com.example.video.bean.local.VideoItem;
@@ -20,7 +21,7 @@ import cn.jzvd.JzvdMgr;
 
 import static com.example.commonlib.utils.Consts.TAG;
 
-@Route(path = "/video/videofragment")
+@Route(path = ARouterConstants.VIDEO.VIDEO_FRAGMENT)
 public class VideoFragment extends BaseFragment<VideoPresenter> implements VideoContract.View {
     private RecyclerView mVideoListRV;
     private VideoListRvAdapter mVideoListAdapter;
