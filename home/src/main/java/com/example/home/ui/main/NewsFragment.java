@@ -25,8 +25,8 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
     private NewsListRvAdapter mNewsListAdapter;
     private LinearLayoutManager mLayoutManager;
 
-    @Autowired
-    HelloService helloService;
+//    @Autowired
+//    HelloService helloService;
 
     @Override
     protected int getLayoutResId() {
@@ -52,7 +52,7 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
             @Override
             public void onItemLongClick(View v, int position) {
 //                Toast.makeText(getContext(), "Item " + position + " is long clicked.", Toast.LENGTH_SHORT).show();
-//                HelloService helloService = (HelloService) ARouter.getInstance().build(ARouterConstants.HOME.SERVICE_HELLO).navigation();
+                HelloService helloService = (HelloService) ARouter.getInstance().build(ARouterConstants.HOME.SERVICE_HELLO).navigation();
                 String result = helloService.sayHello("Edward");
             }
         });

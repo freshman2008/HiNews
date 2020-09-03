@@ -2,8 +2,10 @@ package com.example.hinews;
 
 import android.view.KeyEvent;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.example.commonlib.mvp.BaseActivity;
+import com.example.commonlib.utils.ARouterConstants;
 import com.example.commonlib.view.BottomNaviBar;
 import com.example.commonlib.view.NoScrollViewPager;
 import com.example.hinews.adapter.MainPagerAdapter;
@@ -47,15 +49,10 @@ public class MainActivity extends BaseActivity<MainPresenter> {
 
         mViewPager = findViewById(R.id.main_vp);
         List<Fragment> fragmentList = new ArrayList<>();
-        NewsFragment fragment1 = new NewsFragment();
-
-        VideoFragment fragment2 = new VideoFragment();
-        MiniVideoFragment fragment3 = new MiniVideoFragment();
-        MineFragment fragment4 = new MineFragment();
-        fragmentList.add(fragment1);
-        fragmentList.add(fragment2);
-        fragmentList.add(fragment3);
-        fragmentList.add(fragment4);
+        fragmentList.add((Fragment) ARouter.getInstance().build(ARouterConstants.HOME.NEWS_FRAGMENT).navigation());
+        fragmentList.add((Fragment) ARouter.getInstance().build(ARouterConstants.VIDEO.VIDEO_FRAGMENT).navigation());
+        fragmentList.add((Fragment) ARouter.getInstance().build(ARouterConstants.MINIVIDEO.MINIVIDEO_FRAGMENT).navigation());
+        fragmentList.add((Fragment) ARouter.getInstance().build(ARouterConstants.MINE.MINE_FRAGMENT).navigation());
         MainPagerAdapter mainPagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
         mainPagerAdapter.setList(fragmentList);
         mViewPager.setAdapter(mainPagerAdapter);

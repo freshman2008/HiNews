@@ -36,6 +36,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            debuggable = true
+        }
     }
 
     sourceSets {
@@ -60,6 +63,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    annotationProcessor "com.alibaba:arouter-compiler:$AROUTER_COMPILER"
     implementation project(path: ':provider')
+
+    if (HOME_MODULE_IS_APP.toBoolean()) {
+        if (!MINE_MODULE_IS_APP.toBoolean()) {
+            implementation project(path: ':mine')
+        }
+    }
 }
