@@ -11,7 +11,7 @@ import com.example.provider.HelloService;
  * @author: Li Xiuliang
  * @date: 2020/9/3 10:25
  */
-@Route(path = ARouterConstants.HOME.SERVICE_HELLO, name = "test service")
+@Route(path = ARouterConstants.MINE.SERVICE_HELLO, name = "test service")
 public class HelloServiceImpl implements HelloService {
     private Context mContext;
 

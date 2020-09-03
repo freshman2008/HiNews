@@ -6,12 +6,17 @@ package com.example.commonlib.utils;
  */
 public class ARouterConstants {
     /**
-     * home模块
+     * main模块
      */
-    public class HOME {
-        public static final String NEWS_FRAGMENT  = "/home/newsfragment";
+    public class MAIN {
+        public static final String MAIN_ACTIVITY = "/main/activity/main";
+    }
 
-        public static final String SERVICE_HELLO = "/service/hello";
+    /**
+     * news模块
+     */
+    public class NEWS {
+        public static final String NEWS_FRAGMENT = "/news/newsfragment";
     }
 
     /**
@@ -36,5 +41,6 @@ public class ARouterConstants {
     public class MINE {
         public static final String MINE_FRAGMENT  = "/mine/minefragment";
         public static final String MINE_LONGIN_ACTIVITY  = "/mine/login";
+        public static final String SERVICE_HELLO = "/mine/service/hello";
     }
 }

@@ -17,7 +17,7 @@ import java.util.List;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-@Route(path = ARouterConstants.HOME.NEWS_FRAGMENT)
+@Route(path = ARouterConstants.NEWS.NEWS_FRAGMENT)
 public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsContract.View {
     private RecyclerView mNewsListRV;
     private NewsListRvAdapter mNewsListAdapter;
@@ -50,7 +50,7 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
             @Override
             public void onItemLongClick(View v, int position) {
 //                Toast.makeText(getContext(), "Item " + position + " is long clicked.", Toast.LENGTH_SHORT).show();
-                HelloService helloService = (HelloService) ARouter.getInstance().build(ARouterConstants.HOME.SERVICE_HELLO).navigation();
+                HelloService helloService = (HelloService) ARouter.getInstance().build(ARouterConstants.MINE.SERVICE_HELLO).navigation();
                 String result = helloService.sayHello("Edward");
             }
         });
